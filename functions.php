@@ -79,4 +79,52 @@
     die();
 	}
 
+	// registration form error check 
+	add_action('register_post', 'binda_register_fail_redirect', 99, 3);
+
+	function binda_register_fail_redirect( $sanitized_user_login, $user_email, $errors ){
+	    //this line is copied from register_new_user function of wp-login.php
+	    $errors = apply_filters( 'registration_errors', $errors, $sanitized_user_login, $user_email );
+	    //this if check is copied from register_new_user function of wp-login.php
+	    if ( $errors->get_error_code() ){
+	        //setup your custom URL for redirection
+	        $redirect_url = get_bloginfo('url') . '/register';
+	        //add error codes to custom redirection URL one by one
+	        foreach ( $errors->errors as $e => $m ){
+	            $redirect_url = add_query_arg( $e, '1', $redirect_url );    
+	        }
+	        //add finally, redirect to your custom page with all errors in attributes
+	        wp_redirect( $redirect_url );
+	        exit;   
+	    }
+	}
+
+	// lost passowrd error check
+	add_action('lostpassword_post', 'validate_reset', 99, 3);
+
+	function validate_reset(){
+		if(isset($_POST['user_login']) && !empty($_POST['user_login'])){
+			$email_address = $_POST['user_login'];
+			if(filter_var( $email_address, FILTER_VALIDATE_EMAIL )){
+				if(!email_exists( $email_address )){
+					wp_redirect( 'register/?userexist=false' );
+       				exit;
+				}
+			}else{
+					$username = $_POST['user_login'];
+					if ( !username_exists( $username ) ){
+           				wp_redirect( 'register/?userexist=false' );
+           				exit;
+           			}
+				} 
+			
+		}else{
+			wp_redirect( 'register/?lostempty=true' );
+			exit;   
+		}
+	}
+
+
+
+
 	?>
