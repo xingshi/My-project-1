@@ -49,10 +49,33 @@
             	<?php global $current_user;
       				get_currentuserinfo();
 				?>
-				<span class="rego">Welcome Back <a href="#"><?php echo $current_user->user_firstname.' '.$current_user->user_lastname ?></a></span>
+				<span class="rego">Welcome Back <a href="<?php echo get_home_url(); ?>/edit-profile/"><?php echo $current_user->user_login; ?></a></span>
 				<span class="rego"><a href="<?php echo wp_logout_url($current_uri); ?>">Sign Out</a></span>
 			<?php } else { ?>
-				<span class="rego"><a href="<?php echo wp_registration_url($current_uri); ?>">Register</a></span>
+				<span class="rego"><a data-toggle="dropdown" class="dropdown-toggle" href="">Register <b class="caret"></b></a>
+					<div class="dropdown-menu">
+						<div class="error-message" id="error-message"></div>
+						<form method="post" id="register-form" name="st-register-form">
+						<div class="form-group">
+							<label for="st-username"><?php _e( 'Username', 'debate' ); ?></label>
+							<input class="form-control" type="text" autocomplete="off" name="username" id="st-username" />
+						</div>
+						<div class="form-group">
+							<label for="st-email"><?php _e( 'Email', 'debate' ); ?></label>
+							<input class="form-control" type="text" autocomplete="off" name="mail" id="st-email" />
+						</div>
+						<div class="form-group">
+							<label for="st-psw"><?php _e( 'Password', 'debate' ); ?></label>
+							<input class="form-control" type="password" name="password" id="st-psw" />
+						</div>
+						<div class="form-group">
+							<label for="st-psw-re"><?php _e( 'Retype-Password', 'debate' ); ?></label>
+							<input class="form-control" type="password" name="re-password" id="st-psw-re" />
+						</div>
+							<input class="btn btn-default"type="button" id="register-me" value="Sign up" />
+						</form>
+					</div>
+				</span>
 				<span class="rego ender"><a href="#" data-toggle="dropdown" class="dropdown-toggle login_button" id="show_login">Log In <b class="caret"></b></a>
 					<div class="dropdown-menu">
 						<form id="login" action="login" method="post">

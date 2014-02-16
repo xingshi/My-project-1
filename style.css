@@ -200,12 +200,20 @@ a:hover {
 	display: block;
 	padding-bottom: 10px;
 }
-#login{
+#login, #register-form{
 	padding: 20px;
 	width: 252px;
 }
+.error-message{
+	padding: 5px 20px 0px 20px;
+	width: 252px;
+	color: brown;
+}
 
-/* 2 -- Register page style */
+/* 2 -- Register and Profile page style */
 .padding-container{
 	margin-top: 40px;
+}
+.padding-container-more{
+	margin-top: 80px;
 }

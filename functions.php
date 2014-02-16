@@ -14,6 +14,7 @@
 	function get_scripts () {
 		wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-1.10.2.js');
 		wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js');
+		wp_enqueue_script('ajax_register', get_template_directory_uri() . '/js/ajax-registration.js');
 	}
 	add_action('wp_enqueue_scripts', 'get_scripts');	
 	
@@ -28,15 +29,22 @@
 		show_admin_bar(false);
 	}
 	add_action('after_setup_theme', 'remove_admin_bar');
-	/*
+
 	function restrict_admin(){
+		if(defined('DOING_AJAX') && DOING_AJAX === true){
+			$isAjax = true;
+		}else{
+			$isAjax = false;
+		}
+		
 		//if not administrator, kill WordPress execution and provide a message
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( !$isAjax && ! current_user_can( 'manage_options' ) ) {
 			wp_die( __('You are not allowed to access this part of the site') );
 		}
 	}
 	add_action( 'admin_init', 'restrict_admin', 1);
-	*/
+
+
 	// handle login start 
 	function ajax_login_init(){
 
@@ -80,6 +88,7 @@
 	}
 
 	// registration form error check 
+	/*
 	add_action('register_post', 'binda_register_fail_redirect', 99, 3);
 
 	function binda_register_fail_redirect( $sanitized_user_login, $user_email, $errors ){
@@ -97,7 +106,7 @@
 	        wp_redirect( $redirect_url );
 	        exit;   
 	    }
-	}
+	}*/
 
 	// lost passowrd error check
 	add_action('lostpassword_post', 'validate_reset', 99, 3);
@@ -124,7 +133,54 @@
 		}
 	}
 
+	// Registration ajax 
 
+	function st_handle_registration(){
+	  
+		if( $_POST['action'] == 'register_action' ) {
+	  
+			$error = '';
+	  	
+			$uname = trim( $_POST['username'] );
+	 		$email = trim( $_POST['mail_id'] );
+	 		$pswrd = $_POST['passwrd'];
+	 		$repswrd = $_POST['repasswrd'];
+	  	
+			if( empty( $_POST['username'] ) )
+	 			$error .= '<p class="error">Enter Username</p>';
+	  	
+			if( empty( $_POST['mail_id'] ) )
+	 			$error .= '<p class="error">Enter Email Id</p>';
+	 		elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) )
+	 			$error .= '<p class="error">Enter Valid Email</p>';
+	  	
+			if( empty( $_POST['passwrd'] ) || empty( $_POST['repasswrd'] ) )
+				$error .= '<p class="error">Password should not be blank</p>';
+	
+			if( $_POST['passwrd'] != $_POST['repasswrd'] )
+				$error .= '<p class="error">Password does not match</p>';
+	  	
+			if( empty( $error ) ){
+				$status = wp_create_user( $uname, $pswrd ,$email );
+				if( is_wp_error($status) ){	  		
+					$msg = '';  		
+	 				foreach( $status->errors as $key=>$val ){
+	 					foreach( $val as $k=>$v ){
+	 						$msg = '<p class="error">'.$v.'</p>';
+	 					}
+	 				}
+					echo $msg;
+	 			}else{
+					$msg = '<p class="success">Registration Successful, Please Sign In</p>';
+	 				echo $msg;
+	 			}
+			}else{
+				echo $error;
+	 		}
+	 			die(1);
+		}
+	}
 
-
+	add_action( 'wp_ajax_register_action', 'st_handle_registration' );
+	add_action( 'wp_ajax_nopriv_register_action', 'st_handle_registration' );
 	?>
