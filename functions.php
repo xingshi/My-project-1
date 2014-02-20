@@ -79,7 +79,7 @@
 
     $user_signon = wp_signon( $info, false );
     if ( is_wp_error($user_signon) ){
-        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+        echo json_encode(array('loggedin'=>false, 'message'=>__('<p class="error">Wrong username or password.</p>')));
     } else {
         echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
     }

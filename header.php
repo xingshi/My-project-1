@@ -22,6 +22,13 @@
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png" /-->
 		
 		<?php wp_head(); ?>
+		<script>
+			jQuery(document).on('click', '.dropdown-menu', function (e) {
+				// if has class "keep_open", dropdown will not close on click
+				$(this).hasClass('keep_open') && e.stopPropagation(); 
+				
+			});
+		</script>
 	</head>
 	<body>
 	<?php $current_uri = 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>
@@ -36,7 +43,7 @@
 				wp_nav_menu(array(
 					'theme-location' => 'nav-head',
 					'container' => 'div',
-					'container_class' => 'collapse navbar-collapse navbar-right navbar-ex1-collapse',
+					'container_class' => 'collapse navbar-collapse navbar-left navbar-ex1-collapse',
 					'menu_class' => 'nav navbar-nav',
 					'container_id' => '',
 					'depth' => 2,
@@ -53,7 +60,7 @@
 				<span class="rego"><a href="<?php echo wp_logout_url($current_uri); ?>">Sign Out</a></span>
 			<?php } else { ?>
 				<span class="rego"><a data-toggle="dropdown" class="dropdown-toggle" href="">Register <b class="caret"></b></a>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu keep_open">
 						<div class="error-message" id="error-message"></div>
 						<form method="post" id="register-form" name="st-register-form">
 						<div class="form-group">
@@ -73,11 +80,14 @@
 							<input class="form-control" type="password" name="re-password" id="st-psw-re" />
 						</div>
 							<input class="btn btn-default"type="button" id="register-me" value="Sign up" />
+							<span class="loading" style="display:none;" id="loading-log">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/loading.gif">
+							</span>
 						</form>
 					</div>
 				</span>
 				<span class="rego ender"><a href="#" data-toggle="dropdown" class="dropdown-toggle login_button" id="show_login">Log In <b class="caret"></b></a>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu keep_open">
 						<form id="login" action="login" method="post">
     					    <p class="status"></p>
     					    <div class="form-group">
@@ -95,6 +105,9 @@
   							</div>
     					    <a class="lost" href="<?php echo wp_lostpassword_url(); ?>">Lost your password?</a>
     					    <input class="submit_button btn btn-default" type="submit" value="Login" name="submit">
+    					    <span class="loading" style="display:none;" id="loading-log">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/loading.gif">
+							</span>
     					    <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
     					</form>
     				</div>

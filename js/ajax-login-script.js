@@ -2,6 +2,7 @@ jQuery(document).ready(function($) {
     
     // Perform AJAX login on form submit
     $('form#login').on('submit', function(e){
+        $("span#loading-log").show();
         $('form#login p.status').show().text(ajax_login_object.loadingmessage);
         $.ajax({
             type: 'POST',
@@ -13,13 +14,15 @@ jQuery(document).ready(function($) {
                 'password': $('form#login #password').val(), 
                 'security': $('form#login #security').val() },
             success: function(data){
-                $('form#login p.status').text(data.message);
+                $("span#loading-log").hide();
+                $('form#login p.status').html(data.message);
                 if (data.loggedin == true){
                     document.location.href = ajax_login_object.redirecturl;
                 }
             },
             error:  function(error){
-                $('form#login p.status').text("seems error occured, please try again later...");
+                $("span#loading-log").hide();
+                $('form#login p.status').html("<p class='error'>seems error occured, please try again later...</p>");
             }
         });
         e.preventDefault();

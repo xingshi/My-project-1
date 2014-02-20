@@ -8,11 +8,9 @@
 			return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
 		}
 
-		function start_el(&$output, $item, $depth, $args) {	
+		function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 			if ($item->hasChildren) {
 				$output .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$item->title.' <b class="caret"></b></a>';
-			} else if (strcasecmp($item->title, 'home') === 0) {
-				$output .= '<li><a href="'.$this->url.'"><i class="icon-home"></i></span></a>';
 			} else {
 				parent::start_el($output, $item, $depth, $args);
 			}

@@ -2,6 +2,7 @@
 /* Registration Ajax */
 jQuery(document).ready(function($) {
 	jQuery('#register-me').on('click',function(){
+		$("span#loading-log").show();
 		var action = 'register_action';
 	  
 		var username = jQuery("#st-username").val();
@@ -17,12 +18,9 @@ jQuery(document).ready(function($) {
 	 		repasswrd: repasswrd,
 		};
 	  
-		jQuery.post( ajax_login_object.ajaxurl, ajaxdata, function(res){  
+		jQuery.post( ajax_login_object.ajaxurl, ajaxdata, function(res){
+			$("span#loading-log").hide(); 
 			jQuery("#error-message").html(res);
-			console.log(res);
-			if (res.indexOf("Now redirecting") >= 0) {
-				//document.location.href = ajax_login_object.redirecturl;
-			};
 		});
 	});
 });
