@@ -5,6 +5,8 @@
 		wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
 		wp_enqueue_style('fontawesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.css');
 		wp_enqueue_style('bootstrapValidator', get_template_directory_uri() . '/css/bootstrapValidator.min.css');
+		wp_enqueue_style('bootstrap-combined', get_template_directory_uri() . '/css/bootstrap-combined.no-icons.min.css');
+		wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css');
 	}
 	add_action('wp_enqueue_scripts', 'get_styles');
 	
@@ -14,6 +16,8 @@
 		wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js');
 		wp_enqueue_script('ajax_register', get_template_directory_uri() . '/js/ajax-registration.js');
 		wp_enqueue_script('bootstrapValidator', get_template_directory_uri() . '/js/bootstrapValidator.min.js');
+		wp_enqueue_script('bootstrap-wysiwyg', get_template_directory_uri() . '/js/bootstrap-wysiwyg.js');
+		wp_enqueue_script('jquery.hotkeys', get_template_directory_uri() . '/js/jquery.hotkeys.js');
 	}
 	add_action('wp_enqueue_scripts', 'get_scripts');	
 	
@@ -172,7 +176,7 @@
 			'show_in_nav_menus' => false,
 			'menu_position' => 5,
 			'supports' => array(
-				'title', 'editor', 'revisions', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'post-formats'
+				'title', 'editor', 'revisions', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'post-formats'
 			),
 			'rewrite' => array(
 				'slug' => 'stories',
@@ -184,39 +188,4 @@
 		));
 	}
 	add_action('init', 'createStories');
-
-
-	function create_Story( $post_id )
-	{
-	    // check if this is to be a new post
-	    if( $post_id != 'new' )
-	    {
-	        return $post_id;
-	    }
-	 
-	    // Create a new post
-	    $post = array(
-	        'post_status'  => 'publish' ,
-	        'post_title'  => 'A title, maybe a $_POST variable' ,
-	        'post_type'  => 'story' ,
-	    );  
-	 
-	    // insert the post
-	    $post_id = wp_insert_post( $post ); 
-	 
-	    // update $_POST['return']
-	    $_POST['return'] = add_query_arg( array('post_id' => $post_id), $_POST['return'] );    
-	 
-	    // return the new ID
-	    return $post_id;
-	}
-	 
-	add_filter('acf/pre_save_post' , 'create_Story' );
-
-	// prevent admin css from loading
-	add_action( 'wp_print_styles', 'admin_deregister_styles', 100 );
- 
-		function admin_deregister_styles() {
-			wp_deregister_style( 'wp-admin' );
-		}
 	?>

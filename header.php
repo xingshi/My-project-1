@@ -25,7 +25,7 @@
 		<script>
 			jQuery(document).on('click', '.dropdown-menu', function (e) {
 				// if has class "keep_open", dropdown will not close on click
-				$(this).hasClass('keep_open') && e.stopPropagation(); 
+				jQuery(this).hasClass('keep_open') && e.stopPropagation(); 
 				
 			});
 		</script>

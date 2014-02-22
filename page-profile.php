@@ -54,7 +54,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 }
 ?>
     <div class="container padding-container" id="post-<?php the_ID(); ?>">
-        <div class="page-header">
+        <div class="page-header col-lg-10 col-md-10 col-sm-10 row">
             <h1>Edit Profile</h1>
         </div>
         <?php if ( count($error) == 0 && 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user') { ?>
