@@ -28,6 +28,9 @@
 				jQuery(this).hasClass('keep_open') && e.stopPropagation(); 
 				
 			});
+			jQuery(document).ready(function($) {
+				jQuery(".flexnav").flexNav();
+			});
 		</script>
 	</head>
 	<body>
@@ -118,4 +121,16 @@
         </div>
         <!-- /.container -->
     </nav>
+
+    <div class="menu-button">Menu</div>
+        <?php
+        wp_nav_menu(array(
+            'theme-location' => 'mobile-head',
+            'container' => 'nav',
+            'container_id' => 'no-display',
+            'menu_class' => 'flexnav',
+            'depth' => 2,
+            'walker' => new mobile_menu_walker()
+        ));
+        ?>
 
