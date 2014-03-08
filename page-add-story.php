@@ -4,6 +4,8 @@
  */
 	get_header(); 
 	global $current_user;
+    $response_err = '';
+    
 	if($current_user->ID > 0){
 		if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) ) {
  			if(wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' )){
@@ -14,24 +16,29 @@
     			    	'post_type' => 'story',
     			    	'post_status' => 'publish',
     			    	'post_author' => $current_user->ID,
+                        'tags_input' => explode(",", $_POST['storyTag']),
     			    	'comment_status' => 'open'
     				);
 			
     				$status = wp_insert_post( $story_information );
-    			}
+    			}else{
+                    $response_err = "You should not submit an empty story!";
+                }
     		}
 		}
 	}
 ?>
     <div class="container padding-container">
-        <div class="col-lg-10 col-md-10 col-sm-10 row page-header">
-            <h1><?php echo $post->post_title; ?></h1>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 page-header">
+                <h1><?php echo $post->post_title; ?></h1>
+            </div>
         </div>
         <?php if($current_user->ID > 0){ ?>
         <?php 
         	if( isset($status) && is_wp_error($status) ){	  		
         	echo '<div class="row">';
-                echo '<div class="alert alert-danger fade in col-lg-10 col-md-10 col-sm-10">';
+                echo '<div class="alert alert-danger fade in col-lg-12 col-md-12 col-sm-12">';
                   	echo '<button type="button" class="close" data-dismiss="alert">×</button>';
                   	echo '<strong>Oops!</strong> You have errors.'.'<br />';
                   	foreach( $status->errors as $key=>$val ){
@@ -42,9 +49,16 @@
                 echo '</div>';
             echo '</div>';
 	 			
-	 		}else if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) ){
+	 		}else if($response_err != ''){
+                echo '<div class="row">';
+                echo '<div class="alert alert-danger fade in col-lg-12 col-md-12 col-sm-12">';
+                    echo '<button type="button" class="close" data-dismiss="alert">×</button>';
+                    echo '<strong>Oops!</strong> '.$response_err.'<br />';
+                echo '</div>';
+            echo '</div>';
+            }else if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) ){
 	 			echo '<div class="row">';
-                	echo '<div class="alert alert-success fade in col-lg-10 col-md-10 col-sm-10">';
+                	echo '<div class="alert alert-success fade in col-lg-12 col-md-12 col-sm-12">';
                   		echo '<button type="button" class="close" data-dismiss="alert">×</button>';
                   		echo '<strong>Success!</strong> You have added story.'.'<br />';
 				    echo '</div>';
@@ -116,6 +130,10 @@
     					<textarea style="display:none;" name="storyContent" id="storyContent" rows="8" cols="30" class="form-control"></textarea>
 				        <div id="editor"></div>
 				    </div>
+                    <div class="form-group">
+                        <label for="storyTag"><?php _e('Add Tags (use enter key to seperate each tag):', 'framework') ?></label>
+                        <input type="text" name="storyTag" id="storyTag" class="form-control" data-role="tagsinput" />
+                    </div>
 				    <div class="form-group">
 				        <input type="hidden" name="submitted" id="submitted" value="true" />
 				        <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
@@ -132,6 +150,7 @@
             </div>
         <?php } ?>
     </div>
+    <?php var_dump(explode(",", $_POST['storyTag'])); ?>
 <script>
 jQuery(document).ready(function($){
     function initToolbarBootstrapBindings() {
