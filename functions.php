@@ -22,6 +22,7 @@
 		wp_enqueue_script('jquery.hotkeys', get_template_directory_uri() . '/js/jquery.hotkeys.js');
 		wp_enqueue_script('bootstrap.tagsinput', get_template_directory_uri() . '/js/bootstrap-tagsinput.min.js');
 		wp_enqueue_script('flexnav', get_template_directory_uri() . '/js/jquery.flexnav.js');
+		wp_enqueue_script('scoll_to_top', get_template_directory_uri() . '/js/jquery.scrollToTop.js');
 	}
 	add_action('wp_enqueue_scripts', 'get_scripts');	
 	

@@ -29,7 +29,11 @@
 				
 			});
 			jQuery(document).ready(function($) {
+				// mobile menu
 				jQuery(".flexnav").flexNav();
+
+				// scoll to top
+				$("#toTop").scrollToTop(1000);
 			});
 		</script>
 	</head>
@@ -133,4 +137,4 @@
             'walker' => new mobile_menu_walker()
         ));
         ?>
-
+	<a href="#top" id="toTop"></a>
