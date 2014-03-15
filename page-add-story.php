@@ -16,6 +16,7 @@
     			    	'post_type' => 'story',
     			    	'post_status' => 'publish',
     			    	'post_author' => $current_user->ID,
+                        'post_category' => array($_POST['storyCat']),
                         'tags_input' => explode(",", $_POST['storyTag']),
     			    	'comment_status' => 'open'
     				);
@@ -131,8 +132,12 @@
 				        <div id="editor"></div>
 				    </div>
                     <div class="form-group">
-                        <label for="storyTag"><?php _e('Add Tags (use enter key to seperate each tag):', 'framework') ?></label>
+                        <label for="storyTag"><?php _e('Add Tags: (Use enter key to seperate each tag)', 'framework') ?></label>
                         <input type="text" name="storyTag" id="storyTag" class="form-control" data-role="tagsinput" />
+                    </div>
+                    <div class="form-group">
+                        <label for="storyCat"><?php _e('Choose a Category:', 'framework') ?></label>
+                        <?php wp_dropdown_categories(array('class' => '', 'hide_empty' => 0, 'name' => 'storyCat', 'hierarchical' => true)); ?>
                     </div>
 				    <div class="form-group">
 				        <input type="hidden" name="submitted" id="submitted" value="true" />
@@ -150,7 +155,6 @@
             </div>
         <?php } ?>
     </div>
-    <?php var_dump(explode(",", $_POST['storyTag'])); ?>
 <script>
 jQuery(document).ready(function($){
     function initToolbarBootstrapBindings() {

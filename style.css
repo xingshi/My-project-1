@@ -272,7 +272,9 @@ left: -85% !important;
 	height:auto !important;
 	padding:8px !important;
 }
-
+.timeline-badge {
+    cursor: pointer;
+}
 /* Edit Profile page */
 #editor {
 	max-height: 250px;
@@ -458,10 +460,6 @@ div[data-role="editor-toolbar"] {
 .timeline-body > ul {
     margin-bottom: 0;
 }
-
-    .timeline-body > p + p {
-        margin-top: 5px;
-    }
 
 @media (max-width: 767px) {
     ul.timeline:before {
