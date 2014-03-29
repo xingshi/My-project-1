@@ -316,7 +316,7 @@ div[data-role="editor-toolbar"] {
 }
 
 
-/* 4 -- Story timeline style */
+/* 5 -- Story timeline style */
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
@@ -495,4 +495,7 @@ div[data-role="editor-toolbar"] {
             left: -14px;
             right: auto;
         }
+}
+#pagi-con{
+    clear: both;
 }

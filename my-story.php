@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: All Story
+ * Template Name: My Story
  */
   get_header(); 
 ?>
@@ -25,7 +25,7 @@
     </div>
     <ul id="timeline-content" class="timeline">
         <?php
-
+            global $user_ID;
             function rand_color() {
               return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
             }
@@ -35,6 +35,7 @@
               'posts_per_page' => 2,
               'paged' => get_query_var('paged'),
               'post_status' => 'publish',
+              'author' => $user_ID,
               'orderby' => 'date'
             );
             $story = new WP_Query( $args_story );
@@ -83,15 +84,13 @@ jQuery( document ).ready(function($) {
     navSelector   : "#pagi-con",
     nextSelector  : "#pagi-con a.nextpostslink",
     itemSelector  : "#timeline-content #single-story",
-    //loadingImg   : "/img/loading.gif", 
-    
     loading: {
       loadingText  : "Loading...", 
       finishedMsg: 'You have reached the end.',
       img: '<?php echo get_template_directory_uri()."/img/ajax-loader.gif"; ?>',
       msgText: "<em>Loading more content ...</em>",
     },
-    animate      : false,     
+    animate      : false,        
     });
 });
   </script>

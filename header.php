@@ -1,12 +1,12 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>" />
 		<title><?php wp_title(); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="author" content="" />
-		
-		<!-- Styles -->		
+
+		<!-- Styles -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -20,13 +20,13 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png" />
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png" />
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png" /-->
-		
+
 		<?php wp_head(); ?>
 		<script>
 			jQuery(document).on('click', '.dropdown-menu', function (e) {
 				// if has class "keep_open", dropdown will not close on click
-				jQuery(this).hasClass('keep_open') && e.stopPropagation(); 
-				
+				jQuery(this).hasClass('keep_open') && e.stopPropagation();
+
 			});
 			jQuery(document).ready(function($) {
 				// mobile menu
@@ -119,7 +119,7 @@
     					</form>
     				</div>
 				</span>
-				
+
 			<?php } ?>
 			</div>
         </div>
