@@ -39,7 +39,7 @@
 	</head>
 	<body>
 	<?php $current_uri = 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top top-nav-menu" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Logo and title goes here...</a>
@@ -66,34 +66,34 @@
 				<span class="rego">Welcome Back <a href="<?php echo get_home_url(); ?>/edit-profile/"><?php echo $current_user->user_login; ?></a></span>
 				<span class="rego"><a href="<?php echo wp_logout_url($current_uri); ?>">Sign Out</a></span>
 			<?php } else { ?>
-				<span class="rego"><a data-toggle="dropdown" class="dropdown-toggle" href="">Register <b class="caret"></b></a>
+				<span class="rego"><a data-toggle="dropdown" class="dropdown-toggle" href="">SIGN UP <b class="caret"></b></a>
 					<div class="dropdown-menu keep_open">
 						<div class="error-message" id="error-message"></div>
 						<form method="post" id="register-form" name="st-register-form">
 						<div class="form-group">
 							<label for="st-username"><?php _e( 'Username', 'debate' ); ?></label>
-							<input class="form-control" type="text" autocomplete="off" name="username" id="st-username" />
+							<input class="form-control" placeholder="Username" type="text" autocomplete="off" name="username" id="st-username" />
 						</div>
 						<div class="form-group">
 							<label for="st-email"><?php _e( 'Email', 'debate' ); ?></label>
-							<input class="form-control" type="text" autocomplete="off" name="mail" id="st-email" />
+							<input class="form-control" type="text" placeholder="Email" autocomplete="off" name="mail" id="st-email" />
 						</div>
 						<div class="form-group">
 							<label for="st-psw"><?php _e( 'Password', 'debate' ); ?></label>
-							<input class="form-control" type="password" name="password" id="st-psw" />
+							<input class="form-control" placeholder="Password" type="password" name="password" id="st-psw" />
 						</div>
 						<div class="form-group">
-							<label for="st-psw-re"><?php _e( 'Retype-Password', 'debate' ); ?></label>
-							<input class="form-control" type="password" name="re-password" id="st-psw-re" />
+							<label for="st-psw-re"><?php _e( 'Confirm Password', 'debate' ); ?></label>
+							<input class="form-control" placeholder="Confirm Password" type="password" name="re-password" id="st-psw-re" />
 						</div>
-							<input class="btn btn-default"type="button" id="register-me" value="Sign up" />
+							<input class="btn btn-primary" type="button" id="register-me" value="SIGN UP" />
 							<span class="loading" style="display:none;" id="loading-log">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/loading.gif">
 							</span>
 						</form>
 					</div>
 				</span>
-				<span class="rego ender"><a href="#" data-toggle="dropdown" class="dropdown-toggle login_button" id="show_login">Log In <b class="caret"></b></a>
+				<span class="rego ender"><a href="#" data-toggle="dropdown" class="dropdown-toggle login_button" id="show_login">SIGN IN <b class="caret"></b></a>
 					<div class="dropdown-menu keep_open">
 						<form id="login" action="login" method="post">
     					    <p class="status"></p>
@@ -111,7 +111,7 @@
     							</label>
   							</div>
     					    <a class="lost" href="<?php echo wp_lostpassword_url(); ?>">Lost your password?</a>
-    					    <input class="submit_button btn btn-default" type="submit" value="Login" name="submit">
+    					    <input class="submit_button btn btn-primary" type="submit" value="SIGN IN" name="submit">
     					    <span class="loading" style="display:none;" id="loading-log">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/loading.gif">
 							</span>

@@ -32,7 +32,7 @@
     <div class="container padding-container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 page-header">
-                <h1><?php echo $post->post_title; ?></h1>
+                <h2><?php echo $post->post_title; ?></h2>
             </div>
         </div>
         <?php if($current_user->ID > 0){ ?>
@@ -112,7 +112,7 @@
 							  <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
 							    <div class="dropdown-menu input-append">
 								    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
-								    <button class="btn" type="button">Add</button>
+								    <button class="btn btn-default" type="button">Add</button>
     					    </div>
     					    <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
 					
@@ -137,12 +137,12 @@
                     </div>
                     <div class="form-group">
                         <label for="storyCat"><?php _e('Choose a Category:', 'framework') ?></label>
-                        <?php wp_dropdown_categories(array('class' => '', 'hide_empty' => 0, 'name' => 'storyCat', 'hierarchical' => true)); ?>
+                        <?php wp_dropdown_categories(array('class' => 'form-control', 'hide_empty' => 0, 'name' => 'storyCat', 'hierarchical' => true)); ?>
                     </div>
 				    <div class="form-group">
 				        <input type="hidden" name="submitted" id="submitted" value="true" />
 				        <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
-				        <button class="btn btn-default" type="submit"><?php _e('Add Story', 'framework') ?></button>
+				        <button class="btn btn-primary" type="submit"><?php _e('ADD STORY', 'framework') ?></button>
 				    </div>
 				</form>
             </div>
@@ -176,7 +176,7 @@ jQuery(document).ready(function($){
       });
       if ("onwebkitspeechchange"  in document.createElement("input")) {
         var editorOffset = $('#editor').offset();
-        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top+13, left: editorOffset.left+$('#editor').innerWidth()-35});
       } else {
         $('#voiceBtn').hide();
       }

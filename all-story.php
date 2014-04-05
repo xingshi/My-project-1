@@ -21,7 +21,11 @@
 </script>
 <div class="container padding-container">
     <div class="page-header">
-        <h1 id="timeline"><?php echo $post->post_title; ?></h1>
+        <h2 id="timeline"><?php echo $post->post_title; ?></h2>
+    </div>
+    <div id="collapseall" class="collapse-btn">
+        <button id="collapse-all" type="button" class="btn btn-info">Collapse All</button>
+        <button id="expand-all" type="button" class="btn btn-info">Expand All</button>
     </div>
     <ul id="timeline-content" class="timeline">
         <?php
@@ -32,7 +36,7 @@
 
             $args_story = array(
               'post_type' => 'story',
-              'posts_per_page' => 2,
+              'posts_per_page' => 5,
               'paged' => get_query_var('paged'),
               'post_status' => 'publish',
               'orderby' => 'date'
@@ -48,11 +52,11 @@
           <div class="timeline-badge" onclick="toggle_story(<?php the_ID(); ?>)" style="<?php echo "background-color:" . rand_color(); ?>"><i id="toggle-badge<?php the_ID(); ?>" class="glyphicon glyphicon-plus"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title"><?php echo get_the_title(); ?></h4>
+              <h4 class="timeline-title"><a href="<?php echo get_permalink( get_the_ID() ); ?>" alt="<?php echo get_the_title(); ?>"><?php echo get_the_title(); ?></a></h4>
               <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo get_the_date() . " By " . get_the_author(); ?></small></p>
             </div>
             <div class="timeline-body" id="toggle-content<?php the_ID(); ?>">
-              <p><?php the_excerpt(); ?></p>
+              <p><?php the_excerpt(); ?></p><a href="<?php echo get_permalink( get_the_ID() ); ?>" alt="<?php echo get_the_title(); ?>"><span class="story-btn btn btn-primary">READ FULL STORY</span></a>
             </div>
           </div>
         </li>
@@ -92,6 +96,13 @@ jQuery( document ).ready(function($) {
       msgText: "<em>Loading more content ...</em>",
     },
     animate      : false,     
+    });
+
+   $('#collapse-all').on('click', function() {
+      jQuery( "div[id*='toggle-content']" ).slideUp( "slow" );
+    });
+    $('#expand-all').on('click', function() {
+      jQuery( "div[id*='toggle-content']" ).slideDown( "slow" );
     });
 });
   </script>

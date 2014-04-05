@@ -3,19 +3,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline">
-                        <li><a href="#home">Home</a>
+                        <li><a href="<?php echo home_url(); ?>">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#about">About</a>
+                        <li><a href="<?php echo home_url(); ?>/about">About</a>
                         </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#services">Services</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2013. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; xxx 2014. All Rights Reserved</p>
                 </div>
             </div>
         </div>

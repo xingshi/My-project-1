@@ -12,8 +12,13 @@ Text Domain:
 
 Sturcture 
 
-1, general
-2, header
+1 -- general
+2 -- header
+3 -- Register and Profile page style
+4 -- Add story page style 
+5 -- Edit Profile page
+6 -- Story timeline style
+7 -- single story page style
 */
 
 /* 1 -- General style */
@@ -190,8 +195,16 @@ a:hover {
 	color: #333;
 	text-decoration: none;
 }
-
-
+.menu-button {
+margin-top: 90px;
+}
+#no-display ul{
+    padding: 0px;
+}
+body{
+    background-image:url("img/crossword.png");
+    background-repeat:repeat;
+}
 /* 2 -- header style */
 .account-con{
 	float: right;
@@ -229,10 +242,35 @@ a:hover {
 .navbar-header {
 	padding: 14px 0px;
 }
-.menu_bar{
-	padding: 4px 0px;
+.top-nav-menu, .menu_bar ul li ul, .account-con .dropdown-menu, footer{
+    background-image: url(" img/overlay-pattern.png") !important;
+    background-color: rgba(44,62,80 , 0.6 ) !important;
+    background-repeat: repeat !important;
 }
-
+.menu_bar > ul > .open > a:focus{
+    background-color: black !important;
+}
+.navbar-header a, .menu_bar ul li a, .account-con span, .account-con span a, footer a{
+    color: white !important;
+}
+.menu_bar ul li a:hover{
+    background-color: black !important;
+}
+.account-con span a:hover{
+    color: #999 !important;
+}
+.menu_bar > ul > .open > .dropdown-menu > li > a:hover,
+.menu_bar > ul > .open > .dropdown-menu > li > a:focus {
+    background-color: black !important;
+}
+.menu-button, .flexnav li a{
+    background-image: url(" img/overlay-pattern.png") !important;
+    background-color: rgba(44,62,80 , 0.6 ) !important;
+    background-repeat: repeat !important;
+}
+.flexnav li ul li a{
+        background-color: grey !important;
+}
 /* scoll to top style */
 #toTop {
     display: none;
@@ -260,7 +298,7 @@ a:hover {
 	margin-top: 80px;
 }
 .keep_open {
-left: -85% !important;
+left: -65% !important;
 }
 .loading img{
 	width:12%;
@@ -275,7 +313,17 @@ left: -85% !important;
 .timeline-badge {
     cursor: pointer;
 }
-/* Edit Profile page */
+.page-header{
+    margin-top: 0px !important;
+}
+.bootstrap-tagsinput {
+width: 30%;
+display: block;
+}
+#storyCat{
+    width: 30%;
+}
+/* 5 -- Edit Profile page */
 #editor {
 	max-height: 250px;
 	height: 250px;
@@ -316,7 +364,7 @@ div[data-role="editor-toolbar"] {
 }
 
 
-/* 5 -- Story timeline style */
+/* 6 -- Story timeline style */
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
@@ -498,4 +546,26 @@ div[data-role="editor-toolbar"] {
 }
 #pagi-con{
     clear: both;
+}
+
+.story-btn{
+    margin-top: 10px !important;
+    float: right;
+}
+.timeline-top{
+    padding: 0px 0px 20px 0px !important;
+}
+.collapse-btn{
+    text-align: center;
+    position: relative;
+    top: -10px;
+}
+.collapse-btn button{
+    position: relative;
+    left: -4px;
+}
+
+/* 7 -- single story page style */
+.single-row{
+    line-height: 22px;
 }

@@ -55,7 +55,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 ?>
     <div class="container padding-container" id="post-<?php the_ID(); ?>">
         <div class="page-header col-lg-10 col-md-10 col-sm-10 row">
-            <h1>Edit Profile</h1>
+            <h2>Edit Profile</h2>
         </div>
         <?php if ( count($error) == 0 && 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user') { ?>
         <div class="row">
@@ -124,7 +124,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
                         do_action('edit_user_profile',$current_user); 
                     ?>
                     <p class="form-submit">
-                        <input name="updateuser" type="submit" id="updateuser" class="btn btn-default submit button" value="<?php _e('Update', 'profile'); ?>" />
+                        <input name="updateuser" type="submit" id="updateuser" class="btn btn-primary submit button" value="<?php _e('UPDATE PROFILE', 'profile'); ?>" />
                         <?php wp_nonce_field( 'update-user' ) ?>
                         <input name="action" type="hidden" id="action" value="update-user" />
                     </p><!-- .form-submit -->
