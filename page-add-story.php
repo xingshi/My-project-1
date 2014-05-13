@@ -67,7 +67,9 @@
 	 		}
         ?>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2">
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 story-content">
             	<form action="" id="addStoryForm" method="POST">
 				    <div class="form-group">
 				        <label for="storyName"><?php _e('Story Name:', 'framework') ?></label>

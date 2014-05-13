@@ -22,11 +22,12 @@
 <div class="container padding-container">
     <div class="page-header">
         <h2 id="timeline"><?php echo $post->post_title; ?></h2>
+        <div id="collapseall" class="collapse-btn">
+          <button id="collapse-all" type="button" class="btn btn-info">Collapse All</button>
+          <button id="expand-all" type="button" class="btn btn-info">Expand All</button>
+        </div>
     </div>
-    <div id="collapseall" class="collapse-btn">
-        <button id="collapse-all" type="button" class="btn btn-info">Collapse All</button>
-        <button id="expand-all" type="button" class="btn btn-info">Expand All</button>
-    </div>
+    <div class="clear"></div>
     <ul id="timeline-content" class="timeline">
         <?php
 

@@ -22,13 +22,22 @@ Sturcture
 */
 
 /* 1 -- General style */
+@font-face {
+    font-family: "aleo";
+    src: url(fonts/Aleo-Bold.otf);
+    src: url(fonts/Aleo-BoldItalic.otf);
+    src: url(fonts/Aleo-Italic.otf);
+    src: url(fonts/Aleo-Light.otf);
+    src: url(fonts/Aleo-LightItalic.otf);
+    src: url(fonts/Aleo-Regular.otf);
+}
 body, html {
 	height: 100%;
 	width: 100%;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
-	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "aleo", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 700;
 }
 
@@ -179,7 +188,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 footer {
 	background-color: #f8f8f8;
-	padding: 50px 0;
+	padding: 20px 0;
 }
 
 p.copyright {
@@ -204,6 +213,22 @@ margin-top: 90px;
 body{
     background-image:url("img/crossword.png");
     background-repeat:repeat;
+}
+.page-header {
+    border-bottom: 1px solid #878787;
+    margin: 40px 0 0;
+    float: left;
+    width: 100%;
+}
+.page-header #timeline{
+    float: left;
+}
+.page-header #collapseall{
+    float: right;
+    padding-top: 29px;
+}
+.clear{
+    clear: both;
 }
 /* 2 -- header style */
 .account-con{
@@ -323,6 +348,10 @@ display: block;
 #storyCat{
     width: 30%;
 }
+.story-content{
+    border-left: 1px solid #878787;
+    padding: 25px;
+}
 /* 5 -- Edit Profile page */
 #editor {
 	max-height: 250px;
@@ -367,7 +396,7 @@ div[data-role="editor-toolbar"] {
 /* 6 -- Story timeline style */
 .timeline {
     list-style: none;
-    padding: 20px 0 20px;
+    padding: 45px 0 30px;
     position: relative;
 }
 
@@ -376,8 +405,8 @@ div[data-role="editor-toolbar"] {
         bottom: 0;
         position: absolute;
         content: " ";
-        width: 3px;
-        background-color: #eeeeee;
+        width: 1px;
+        background-color: #878787;
         left: 50%;
         margin-left: -1.5px;
     }
@@ -410,12 +439,10 @@ div[data-role="editor-toolbar"] {
         .timeline > li > .timeline-panel {
             width: 46%;
             float: left;
-            border: 1px solid #d4d4d4;
+            border: 1px solid #878787;
             border-radius: 2px;
             padding: 20px;
             position: relative;
-            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
         }
 
             .timeline > li > .timeline-panel:before {
@@ -424,8 +451,8 @@ div[data-role="editor-toolbar"] {
                 right: -15px;
                 display: inline-block;
                 border-top: 15px solid transparent;
-                border-left: 15px solid #ccc;
-                border-right: 0 solid #ccc;
+                border-left: 15px solid #878787;
+                border-right: 0 solid #878787;
                 border-bottom: 15px solid transparent;
                 content: " ";
             }
@@ -568,4 +595,5 @@ div[data-role="editor-toolbar"] {
 /* 7 -- single story page style */
 .single-row{
     line-height: 22px;
+    padding-bottom: 50px;
 }
