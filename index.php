@@ -96,5 +96,4 @@
     </div>
     <!-- /.content-section-a -->
     <!-- /.banner -->
-	<?php get_sidebar(); ?>
 	<?php get_footer(); ?>

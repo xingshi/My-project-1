@@ -19,6 +19,7 @@ Sturcture
 5 -- Edit Profile page
 6 -- Story timeline style
 7 -- single story page style
+8 -- Sidebar style
 */
 
 /* 1 -- General style */
@@ -596,4 +597,9 @@ div[data-role="editor-toolbar"] {
 .single-row{
     line-height: 22px;
     padding-bottom: 50px;
+}
+
+/* 7 -- Sidebar style */
+.sidebar-container{
+    margin:20px 0px;
 }

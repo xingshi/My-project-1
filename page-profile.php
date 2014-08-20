@@ -54,13 +54,16 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 }
 ?>
     <div class="container padding-container" id="post-<?php the_ID(); ?>">
-        <div class="page-header col-lg-10 col-md-10 col-sm-10 row">
+        <div class="row">
+        <div class="page-header col-lg-12 col-md-12 col-sm-12">
             <h2>Edit Profile</h2>
         </div>
-        <div>
+        </div>
+        <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2">
+                <?php get_sidebar() ?>
             </div>
-            <div class="entry-content entry row col-lg-6 col-md-6 col-sm-6 story-content">
+            <div class="col-lg-6 col-md-6 col-sm-6 story-content">
         <?php if ( count($error) == 0 && 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user') { ?>
         <div class="row">
             <div class="alert alert-success fade in col-lg-10 col-md-10 col-sm-10">
