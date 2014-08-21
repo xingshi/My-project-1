@@ -20,6 +20,7 @@ Sturcture
 6 -- Story timeline style
 7 -- single story page style
 8 -- Sidebar style
+9 -- Home Style
 */
 
 /* 1 -- General style */
@@ -308,6 +309,7 @@ body{
     background-image: url('img/up.png');
     background-repeat: no-repeat;
     opacity: 0.4;
+    z-index: 99999;
     filter: alpha(opacity=40); /* For IE8 and earlier */
 }
 #toTop:hover {
@@ -599,7 +601,15 @@ div[data-role="editor-toolbar"] {
     padding-bottom: 50px;
 }
 
-/* 7 -- Sidebar style */
+/* 8 -- Sidebar style */
 .sidebar-container{
     margin:20px 0px;
+}
+
+/* 9 -- General style */
+.home-container{
+    padding:40px 0px;
+}
+.home-container .panel-body{
+    min-height:200px;
 }

@@ -17,13 +17,13 @@
 		wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js');
 		wp_enqueue_script('ajax_register', get_template_directory_uri() . '/js/ajax-registration.js');
 		wp_enqueue_script('bootstrapValidator', get_template_directory_uri() . '/js/bootstrapValidator.min.js');
-		wp_enqueue_script('bootstrap-wysiwyg', get_template_directory_uri() . '/js/bootstrap-wysiwyg.js');
 		wp_enqueue_script('jquery.hotkeys', get_template_directory_uri() . '/js/jquery.hotkeys.js');
 		wp_enqueue_script('bootstrap.tagsinput', get_template_directory_uri() . '/js/bootstrap-tagsinput.min.js');
 		wp_enqueue_script('flexnav', get_template_directory_uri() . '/js/jquery.flexnav.js');
 		wp_enqueue_script('scoll_to_top', get_template_directory_uri() . '/js/jquery.scrollToTop.js');
 		wp_enqueue_script('infinite scoll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js');
 		wp_enqueue_script('TinyMCE', get_template_directory_uri() . '/js/tinymce.min.js');
+		wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js');
 	}
 	add_action('wp_enqueue_scripts', 'get_scripts');	
 	
