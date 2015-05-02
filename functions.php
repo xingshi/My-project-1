@@ -23,7 +23,7 @@
 		wp_enqueue_script('scoll_to_top', get_template_directory_uri() . '/js/jquery.scrollToTop.js');
 		wp_enqueue_script('infinite scoll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js');
 		wp_enqueue_script('TinyMCE', get_template_directory_uri() . '/js/tinymce.min.js');
-		wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js');
+		//wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js');
 	}
 	add_action('wp_enqueue_scripts', 'get_scripts');	
 	

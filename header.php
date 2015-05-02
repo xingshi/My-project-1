@@ -5,6 +5,7 @@
 		<title><?php wp_title(); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="author" content="" />
+		<meta name="google-site-verification" content="eNLL4F0x7IH6dzS7BCS5wwZmfIewlBp0cB289GOJAMs" />
 
 		<!-- Styles -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700' rel='stylesheet' type='text/css' />
@@ -36,13 +37,23 @@
 				$("#toTop").scrollToTop(1000);
 			});
 		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-61288237-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
 	</head>
 	<body>
 	<?php $current_uri = 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>
     <nav class="navbar navbar-default navbar-fixed-top top-nav-menu" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Logo and title goes here...</a>
+                <a class="navbar-brand" href="/">iStory</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <?php
@@ -68,7 +79,8 @@
 			<?php } else { ?>
 				<span class="rego"><a data-toggle="dropdown" class="dropdown-toggle" href="">SIGN UP <b class="caret"></b></a>
 					<div class="dropdown-menu keep_open">
-						<div class="error-message" id="error-message"></div>
+						<div class="error-message" id="error-message">Sorry Sign Up is currently disabled.</div>
+						<!--div class="error-message" id="error-message"></div>
 						<form method="post" id="register-form" name="st-register-form">
 						<div class="form-group">
 							<label for="st-username"><?php _e( 'Username', 'debate' ); ?></label>
@@ -90,7 +102,7 @@
 							<span class="loading" style="display:none;" id="loading-log">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/loading.gif">
 							</span>
-						</form>
+						</form-->
 					</div>
 				</span>
 				<span class="rego ender"><a href="#" data-toggle="dropdown" class="dropdown-toggle login_button" id="show_login">SIGN IN <b class="caret"></b></a>

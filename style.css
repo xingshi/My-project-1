@@ -206,9 +206,6 @@ a:hover {
 	color: #333;
 	text-decoration: none;
 }
-.menu-button {
-margin-top: 90px;
-}
 #no-display ul{
     padding: 0px;
 }
@@ -231,6 +228,9 @@ body{
 }
 .clear{
     clear: both;
+}
+.home-container .panel-primary{
+    min-height: 300px;
 }
 /* 2 -- header style */
 .account-con{
@@ -267,7 +267,7 @@ body{
 	padding: 0px;
 }
 .navbar-header {
-	padding: 14px 0px;
+	padding: 14px 15px 14px 0px;
 }
 .top-nav-menu, .menu_bar ul li ul, .account-con .dropdown-menu, footer{
     background-image: url(" img/overlay-pattern.png") !important;
@@ -540,6 +540,21 @@ div[data-role="editor-toolbar"] {
 }
 
 @media (max-width: 767px) {
+    .story-content {
+        padding-top: 100px !important;
+    }
+    .sidebar-container{
+        display:none;
+    }
+    .home-container {
+        padding: 40px 20px !important;
+    }
+    .top-nav-menu{
+        display:none;
+    }
+    .menu-button {
+        margin-top: 0px;
+    }
     ul.timeline:before {
         left: 40px;
     }
