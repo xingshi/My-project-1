@@ -1,3 +1,3 @@
 My-project-1
 ============
-A wordpress website theme for playing around :-)
+This is a simple personal site for practice and fun. 
