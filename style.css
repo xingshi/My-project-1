@@ -646,3 +646,6 @@ div[data-role="editor-toolbar"] {
 .btn {
     border-radius: 0px;
 }
+.panel-primary {
+    border-color: black;
+}
