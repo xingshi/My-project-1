@@ -628,3 +628,21 @@ div[data-role="editor-toolbar"] {
 .home-container .panel-body{
     min-height:200px;
 }
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.btn-primary {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.btn-primary:hover, .btn-primary:focus{
+    color: #fff;
+    background-color: #666666;
+    border-color: #666666;
+}
+.btn {
+    border-radius: 0px;
+}
