@@ -173,6 +173,7 @@
 	add_action( 'wp_ajax_nopriv_register_action', 'st_handle_registration' );
 
 	// create custom post type Stories
+	add_theme_support('post-thumbnails');
 	function createStories () {
 		register_post_type('story', array(
 			'label' => 'Stories',
@@ -182,7 +183,15 @@
 			'show_in_nav_menus' => false,
 			'menu_position' => 5,
 			'supports' => array(
-				'title', 'editor', 'revisions', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'post-formats'
+				'title', 
+				'editor', 
+				'revisions', 
+				'author', 
+				'thumbnail', 
+				'excerpt', 
+				'comments', 
+				'page-attributes', 
+				'post-formats'
 			),
 			'rewrite' => array(
 				'slug' => 'stories',
@@ -194,4 +203,18 @@
 		));
 	}
 	add_action('init', 'createStories');
+
+	if ( function_exists( 'add_image_size' ) ) {
+          add_image_size( 'storythumb', 568, 9999, false ); 
+            
+    }
+
+    add_filter('image_size_names_choose', 'my_image_sizes');
+    function my_image_sizes($sizes) {
+        $addsizes = array(
+        	"storythumb" => __( "Story Thumbnail")
+        );
+        $newsizes = array_merge($sizes, $addsizes);
+        return $newsizes;
+    }
 	?>

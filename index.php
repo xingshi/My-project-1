@@ -40,6 +40,17 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading"><?php the_title(); ?></div>
+                            <div class="featured-image">
+                                <?php if(has_post_thumbnail()){ ?>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                        <?php the_post_thumbnail("storythumb"); ?>
+                                    </a>
+                                <?php }else{ ?>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                        <img src="http://placehold.it/568x300/F5F5F5/E8E8E8?text=iStory">
+                                    </a>
+                                <?php } ?>
+                            </div>
                             <div class="panel-body">
                                 <?php the_excerpt(); ?>
                                 <a alt="<?php the_title(); ?>" href="<?php the_permalink(); ?>">

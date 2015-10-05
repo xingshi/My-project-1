@@ -52,6 +52,17 @@
         <li id="single-story" <?php echo ($invert % 2 != 0) ? "class='timeline-inverted'" : ""; ?> >
           <div class="timeline-badge" onclick="toggle_story(<?php the_ID(); ?>)" style="<?php echo "background-color:" . rand_color(); ?>"><i id="toggle-badge<?php the_ID(); ?>" class="glyphicon glyphicon-plus"></i></div>
           <div class="timeline-panel">
+            <div class="featured-image">
+                <?php if(has_post_thumbnail()){ ?>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                        <?php the_post_thumbnail("storythumb"); ?>
+                    </a>
+                <?php }else{ ?>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                        <img src="http://placehold.it/568x300/F5F5F5/E8E8E8?text=iStory">
+                    </a>
+                <?php } ?>
+            </div>
             <div class="timeline-heading">
               <h4 class="timeline-title"><a href="<?php echo get_permalink( get_the_ID() ); ?>" alt="<?php echo get_the_title(); ?>"><?php echo get_the_title(); ?></a></h4>
               <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo get_the_date() . " By " . get_the_author(); ?></small></p>

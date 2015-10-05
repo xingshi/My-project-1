@@ -438,13 +438,17 @@ div[data-role="editor-toolbar"] {
         .timeline > li:after {
             clear: both;
         }
-
+        .timeline-heading, .timeline-body{
+            padding:20px 20px 0px 20px;
+        }
+        .timeline-body .story-btn{
+            margin-bottom: 20px;
+        }
         .timeline > li > .timeline-panel {
             width: 46%;
             float: left;
             border: 1px solid #878787;
             border-radius: 2px;
-            padding: 20px;
             position: relative;
         }
 
@@ -469,7 +473,7 @@ div[data-role="editor-toolbar"] {
                 border-left: 14px solid #fff;
                 border-right: 0 solid #fff;
                 border-bottom: 14px solid transparent;
-                content: " ";
+                
             }
 
         .timeline > li > .timeline-badge {
@@ -594,7 +598,7 @@ div[data-role="editor-toolbar"] {
 }
 
 .story-btn{
-    margin-top: 10px !important;
+    margin-top: 20px !important;
     float: right;
 }
 .timeline-top{
@@ -648,4 +652,54 @@ div[data-role="editor-toolbar"] {
 }
 .panel-primary {
     border-color: black;
+}
+.timeline-panel .featured-image img{
+    width:522.391px;
+}
+.wp-caption {
+    text-align: center;
+    padding-top: 10px;
+    margin: 10px;
+    width: 100% !important;
+}
+.wp-caption img {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 1em;
+    line-height: 17px;
+    font-weight: bold;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+    font-style: italic;
+    padding-bottom: 5px;
+}
+.featured-image{
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    background-color: #4D4D4D;
+}
+.featured-image a{
+    height: 100%;
+    display: inline-block;
+    width: 100%;
+}
+.featured-image img{
+    height: auto;
+    position: relative;
+    width: 100% !important;
+    display: block;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -o-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+.story-content img{
+    width: 100%;
 }
