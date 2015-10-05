@@ -230,7 +230,7 @@ body{
     clear: both;
 }
 .home-container .panel-primary{
-    min-height: 300px;
+    height: 550px;
 }
 /* 2 -- header style */
 .account-con{
